@@ -44,7 +44,7 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
             setProduct(idProduct);
         };
         fetchData();
-    }, [setProduct]);
+    });
 
     useEffect(() => {
         const firstImage = product.firstImage;

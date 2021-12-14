@@ -10,6 +10,29 @@ const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, 
         setBasketModalOn(true);
     })
 
+    const brands = [
+        {
+            name: 'Marinski Heartmades',
+            image: 'brand_1.svg'
+        },
+        {
+            name: 'Priip Ceramics',
+            image: 'brand_2.svg'
+        },
+        {
+            name: 'Made a Mano',
+            image: 'brand_3.svg'
+        },
+        {
+            name: 'Tasja P Ceramics',
+            image: 'brand_4.svg'
+        },
+        {
+            name: 'Lars Rank',
+            image: 'brand_5.svg'
+        },
+    ]
+
     return (
         <>
             <HeroSmall heroTitle={heroTitle} />
@@ -17,36 +40,14 @@ const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, 
                 <div className="container">
                     <h2>Populære brands</h2>
                     <div className="popular_brands">
-                        <div className="brand">
-                            <div className="brand_img">
-                                <img src={`../img/brand_1.svg`} className="mb-20" />
+                        {brands.map((brand, index) => (
+                            <div className="brand" key={index}>
+                                <div className="brand_img">
+                                    <img src={`../img/${brand.image}`} className="mb-20" alt="" />
+                                </div>
+                                <h3>{brand.name}</h3>
                             </div>
-                            <h3>Marinski Heartmades</h3>
-                        </div>
-                        <div className="brand">
-                            <div className="brand_img">
-                                <img src={`../img/brand_2.svg`} className="mb-20" />
-                            </div>
-                            <h3>Priip Ceramics</h3>
-                        </div>
-                        <div className="brand">
-                            <div className="brand_img">
-                                <img src={`../img/brand_3.svg`} className="mb-20" />
-                            </div>
-                            <h3>Made a Mano</h3>
-                        </div>
-                        <div className="brand">
-                            <div className="brand_img">
-                                <img src={`../img/brand_4.svg`} className="mb-20" />
-                            </div>
-                            <h3>Tasja P Ceramics</h3>
-                        </div>
-                        <div className="brand">
-                            <div className="brand_img">
-                                <img src={`../img/brand_5.svg`} className="mb-20" />
-                            </div>
-                            <h3>Lars Rank</h3>
-                        </div>
+                        ))}
                     </div>
                 </div>
                 <div>

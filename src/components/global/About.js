@@ -5,7 +5,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
     useEffect(() => {
         setHeroTitle("Om Unika K");
         setHeaderLight(true);
-    })
+    });
 
     return (
         <>
@@ -24,7 +24,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                             <h2 className="mb-20">Personlighed til hverdagen</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
                             <div className="btn_container mt-30">
-                                <a href=""><button className="btn_small">Se udvalget</button></a>
+                                <a href="#"><button className="btn_small">Se udvalget</button></a>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
             <section id="story" className="relative pb-100">
                 <div className="designer_bg mt-40"></div>
                 <div className="handmade_graphic">
-                    <img src={`../img/handmade_graphic.svg`} />
+                    <img src={`../img/handmade_graphic.svg`} alt="" />
                 </div>
                 <div className="container mt-30">
                     <div className="designer_grid">
@@ -45,7 +45,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                             <button className="btn btn_secondary btn_inverse">Se produkter</button>
                         </div>
                         <div className="designer_img">
-                            <img src={`../img/marinski_img.jpg`}></img>
+                            <img src={`../img/marinski_img.jpg`} alt=""></img>
                         </div>
                     </div>
                 </div>

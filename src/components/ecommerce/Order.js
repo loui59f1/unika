@@ -17,7 +17,7 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
 
 
         // setBasket([]);
-    }, [setHeaderLight, setHeroTitle, setBasketModalOn, setOrderSummary, basket]);
+    });
 
     return (
         <>

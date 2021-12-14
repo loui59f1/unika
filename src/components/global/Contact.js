@@ -33,9 +33,9 @@ const Contact = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                         </div>
                     </div>
                     <div className="contact_img relative">
-                        <img src={`../img/contact_img.jpg`} />
+                        <img src={`../img/contact_img.jpg`} alt="" />
                         <div className="contact_logo">
-                            <img src={`../img/contact_logo.svg`} />
+                            <img src={`../img/contact_logo.svg`} alt="" />
                         </div>
                     </div>
                 </div>

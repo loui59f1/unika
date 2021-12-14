@@ -50,7 +50,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
         });
     };
 
-    const searchFilteredProducts = filterProduct(products, searchQuery);
+    // const searchFilteredProducts = filterProduct(products, searchQuery);
 
     return (
         <header className="transparent" style={{ marginTop: sticky.offset }}>
@@ -83,19 +83,19 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                             <Link to="/">
                                 <div className="logo">
                                     {headerLight && !sticky.isSticky &&
-                                        < img src={`../img/logo_unika.svg`} />
+                                        < img src={`../img/logo_unika.svg`} alt="" />
                                     }
                                     {headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} />
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
                                     }
                                     {/* {headerLight && !sticky &&
                                         < img src={`../img/logo_unika.svg`} />
                                     } */}
                                     {!headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} />
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
                                     }
                                     {!headerLight && !sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} />
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
                                     }
                                 </div>
                             </Link>
@@ -155,10 +155,10 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                             <Link to="/">
                                 <div className="logo">
                                     {headerLight &&
-                                        <img src={`../img/logo_unika.svg`} />
+                                        <img src={`../img/logo_unika.svg`} alt="" />
                                     }
                                     {!headerLight &&
-                                        <img src={`../img/logo_unika_dark.svg`} />
+                                        <img src={`../img/logo_unika_dark.svg`} alt="" />
                                     }
                                 </div>
                             </Link>
@@ -202,7 +202,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                     </div>
                     <div className="mobile_inner">
                         <div className="logo">
-                            <img src={`../img/logo_unika_dark.svg`} />
+                            <img src={`../img/logo_unika_dark.svg`} alt="" />
                         </div>
                         <ul className="categories">
                             <li><Link to="/productlist">Kopper</Link></li>

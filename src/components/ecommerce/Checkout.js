@@ -16,7 +16,7 @@ const Checkout = ({ basket, basketAmount, subtotal, total, setHeaderLight, setBa
         setHeaderLight(false);
         setBasketModalOn(true);
         setIsMobileMenuOpen(false);
-    }, [])
+    });
 
     function handleFirstname(e) {
         setUserFirstname(e.target.value);

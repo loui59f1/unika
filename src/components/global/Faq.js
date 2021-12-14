@@ -26,8 +26,6 @@ const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
 }
 
 function Accordion() {
-    const [isActive, setIsActive] = useState(false);
-
     const accordionData = [
         {
             title: 'Hvad koster det at få leveret min ordre?',
@@ -65,8 +63,6 @@ function Accordion() {
               voluptatem.`
         }
     ]
-
-
 
     return (
         <>

@@ -5,7 +5,7 @@ export default function Designer() {
         <section id="designer" className="relative mt-30 pb-60">
             <div className="designer_bg mt-40"></div>
             <div className="handmade_graphic">
-                <img src={`../img/handmade_graphic.svg`} />
+                <img src={`../img/handmade_graphic.svg`} alt="" />
             </div>
             <div className="container mt-30">
                 <div className="designer_grid">
@@ -17,7 +17,7 @@ export default function Designer() {
                         <Link to="/productlist"><button className="btn btn_secondary btn_inverse">Se produkter</button></Link>
                     </div>
                     <div className="designer_img">
-                        <img src={`../img/marinski_img.jpg`}></img>
+                        <img src={`../img/marinski_img.jpg`} alt=""></img>
                     </div>
                 </div>
             </div>

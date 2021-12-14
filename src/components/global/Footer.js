@@ -34,18 +34,18 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <img src={`../img/footer_logo.svg`} />
+                    <img src={`../img/footer_logo.svg`} alt="" />
                     <div className="footer_logos">
-                        <a href="#"><img src={`../img/facebook_icon.svg`} /></a>
-                        <a href="#"><img src={`../img/pinterest_icon.svg`} /></a>
-                        <a href="#"><img src={`../img/instagram_icon.svg`} /></a>
+                        <a href="https://www.facebook.com/danskkeramik/"><img src={`../img/facebook_icon.svg`} alt="" /></a>
+                        <a href="https://www.pinterest.dk/danskkeramik/"><img src={`../img/pinterest_icon.svg`} alt="" /></a>
+                        <a href="https://www.instagram.com/unika_k/"><img src={`../img/instagram_icon.svg`} alt="" /></a>
                     </div>
                 </div>
             </div>
             <div className="bottom_bar">
                 <div className="container">
                     <div className="payment_logos">
-                        <img src={`../img/payment_logos.svg`} />
+                        <img src={`../img/payment_logos.svg`} alt="" />
                     </div>
                     <div>
                         <p>Copyright © Unika K - 2021</p>
