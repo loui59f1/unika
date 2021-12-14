@@ -1,5 +1,3 @@
-import React from "react";
-
 const Filter = ({ categories, designers, categoryChecked, designerChecked, handleDesignerChange, handleCategoryChange }) => {
 
     return (

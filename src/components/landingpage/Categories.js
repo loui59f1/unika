@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Designer() {
     return (
         <section id="categories" className="relative mt-30">

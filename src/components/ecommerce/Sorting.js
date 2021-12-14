@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const Sorting = ({ sortSelected, handleSortChange }) => {
 
     return (

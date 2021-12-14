@@ -12,17 +12,11 @@ const Checkout = ({ basket, basketAmount, subtotal, total, setHeaderLight, setBa
     const [userPhone, setUserPhone] = useState('');
     const [userEmail, setUserEmail] = useState('');
 
-    function emptyBasket() {
-        // restartGame(event) {
-        //   this.setState({ games: [] });
-        // }
-    }
-
     useEffect(() => {
         setHeaderLight(false);
         setBasketModalOn(true);
         setIsMobileMenuOpen(false);
-    })
+    }, [])
 
     function handleFirstname(e) {
         setUserFirstname(e.target.value);

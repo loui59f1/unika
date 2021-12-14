@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import SingleProduct from '../ecommerce/SingleProduct';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { useEffect } from 'react';
 import HeroSmall from '../ecommerce/HeroSmall';
 import Newsletter from '../landingpage/Newsletter';
 

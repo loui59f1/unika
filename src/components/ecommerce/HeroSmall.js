@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function HeroSmall({ heroTitle }) {
     return (
         <section id="hero_small">

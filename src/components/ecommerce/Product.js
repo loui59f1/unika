@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 // import { AnimateOnChange } from 'react-animation';
 
 const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setBasketModalOn }) => {

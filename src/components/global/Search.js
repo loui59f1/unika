@@ -1,5 +1,3 @@
-import React from "react";
-
 const Search = ({ searchQuery, setSearchQuery, headerLight }) => {
     // https://www.emgoto.com/react-search-bar/
     return (

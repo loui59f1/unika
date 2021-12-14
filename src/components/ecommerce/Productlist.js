@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SingleProduct from './SingleProduct'
 import Filter from './Filter'
 import Sorting from './Sorting'
 import HeroSmall from "./HeroSmall";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
     const designers = [
@@ -88,6 +88,8 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
             setFilteredProducts(filteredProducts.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])));
         }
     }, [sortSelected]);
+
+    console.log(sortedProducts)
 
     useEffect(() => {
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SingleProduct from "../ecommerce/SingleProduct";
 
 export default function ProductList({ products, onAdd, onRemove }) {

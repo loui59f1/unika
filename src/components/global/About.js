@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import HeroSmall from "../ecommerce/HeroSmall";
 
 const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {

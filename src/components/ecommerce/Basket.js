@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketModalOn }) => {
 
@@ -37,7 +37,7 @@ const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketMo
                                         </Link>
                                     </div>
                                     <div className="remove_icon">
-                                        <img onClick={() => onRemove(item)} src={`../img/remove_icon.jpg`}></img>
+                                        <img onClick={() => onRemove(item)} src={`../img/remove_icon.jpg`} alt=""></img>
                                     </div>
                                     <div className="amount_container mt-10">
                                         <p className="fs-13">Antal: {item.amount}</p>
