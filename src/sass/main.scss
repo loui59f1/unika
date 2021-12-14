@@ -1,0 +1,18 @@
+@import 'layout/header','layout/general', 'layout/productlist', 'layout/footer', 'layout/landing', 'layout/checkout';
+@import 'base/typography';
+@import 'abstracts/variables','abstracts/mixins';
+@import 'components/buttons';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
