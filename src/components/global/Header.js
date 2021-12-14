@@ -10,8 +10,6 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
     const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
 
     const headerRef = useRef(null);
-    console.log(isMobileMenuOpen)
-
 
     const handleScroll = (elTopOffset, elHeight) => {
         if (window.pageYOffset > (elTopOffset + elHeight)) {
@@ -35,21 +33,20 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     }, []);
 
-    const filterProduct = (products, query) => {
-        if (!query) {
-            return [];
-        }
+    // const filterProduct = (products, query) => {
+    //     if (!query) {
+    //         return [];
+    //     }
 
-        return products.filter((product) => {
-            const queryLowered = query.toLowerCase();
-            const productName = product.title.toLowerCase();
-            const productBrand = product.brand.toLowerCase();
-            const productCategory = product.category.toLowerCase();
+    //     return products.filter((product) => {
+    //         const queryLowered = query.toLowerCase();
+    //         const productName = product.title.toLowerCase();
+    //         const productBrand = product.brand.toLowerCase();
+    //         const productCategory = product.category.toLowerCase();
 
-            return productName.includes(queryLowered) | productCategory.includes(queryLowered) | productBrand.includes(queryLowered);
-        });
-    };
-
+    //         return productName.includes(queryLowered) | productCategory.includes(queryLowered) | productBrand.includes(queryLowered);
+    //     });
+    // };
     // const searchFilteredProducts = filterProduct(products, searchQuery);
 
     return (

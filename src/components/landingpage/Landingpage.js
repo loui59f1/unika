@@ -8,8 +8,11 @@ import Newsletter from "./Newsletter";
 export default function Landingpage({ products, onAdd, onRemove, setHeaderLight }) {
 
     useEffect(() => {
-        setHeaderLight(true)
-    })
+        const setStates = async () => {
+            setHeaderLight(true)
+        };
+        setStates();
+    });
 
     return (
         <>

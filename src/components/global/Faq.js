@@ -5,10 +5,13 @@ import Newsletter from "../landingpage/Newsletter";
 const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
 
     useEffect(() => {
-        setHeroTitle("FAQ");
-        setHeaderLight(true);
-        setBasketModalOn(true);
-    })
+        const setStates = async () => {
+            setHeroTitle("FAQ");
+            setHeaderLight(true);
+            setBasketModalOn(true);
+        };
+        setStates();
+    });
 
     return (
         <>

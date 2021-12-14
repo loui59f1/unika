@@ -1,11 +1,19 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 import HeroSmall from "../ecommerce/HeroSmall";
 
 const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
+
     useEffect(() => {
-        setHeroTitle("Om Unika K");
-        setHeaderLight(true);
+        const setStates = async () => {
+            setHeroTitle("Om Unika K");
+            setHeaderLight(true);
+        };
+        setStates();
     });
+
+    console.log(heroTitle);
 
     return (
         <>
@@ -24,7 +32,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                             <h2 className="mb-20">Personlighed til hverdagen</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
                             <div className="btn_container mt-30">
-                                <a href="#"><button className="btn_small">Se udvalget</button></a>
+                                <Link to="/productlist"><button className="btn_small">Se udvalget</button></Link>
                             </div>
                         </div>
                     </div>

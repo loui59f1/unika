@@ -1,23 +1,34 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import HeroSmall from "./HeroSmall";
 import Newsletter from "../landingpage/Newsletter";
 
 const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModalOn, setBasket, setIsMobileMenuOpen }) => {
 
-    const [orderSummary, setOrderSummary] = useState([]);
-
     useEffect(() => {
-        setHeaderLight(true);
-        setHeroTitle("Tak for din ordre!");
-        setBasketModalOn(false);
-        setIsMobileMenuOpen(false);
-
-        let basketCopy = [...basket];
-        setOrderSummary(basketCopy);
-
-
-        // setBasket([]);
+        const setStates = async () => {
+            setHeaderLight(true);
+            setHeroTitle("Tak for din ordre!");
+            setBasketModalOn(false);
+            setIsMobileMenuOpen(false);
+        };
+        setStates();
     });
+
+    //     const fetchBusinesses = () => {
+    //         return fetch("theURL", {method: "GET"}
+    //      )
+    //        .then(res => normalizeResponseErrors(res))
+    //        .then(res => {
+    //          return res.json();
+    //        })
+    //        .then(rcvdBusinesses => {
+    //          // some stuff
+    //        })
+    //        .catch(err => {
+    //          // some error handling
+    //        });
+    //    };
+    //    fetchBusinesses()
 
     return (
         <>
@@ -45,7 +56,7 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
                         </div>
                         <div className="order_summary">
                             <h2>Ordre oversigt</h2>
-                            {orderSummary.map((product, index) => (
+                            {basket.map((product, index) => (
                                 <div className="summary_item" key={index}>
                                     <div className="order_image">
                                         <img src={`../img/${product.firstImage}`} alt={product.title}></img>

@@ -13,9 +13,12 @@ const Checkout = ({ basket, basketAmount, subtotal, total, setHeaderLight, setBa
     const [userEmail, setUserEmail] = useState('');
 
     useEffect(() => {
-        setHeaderLight(false);
-        setBasketModalOn(true);
-        setIsMobileMenuOpen(false);
+        const setStates = async () => {
+            setHeaderLight(false);
+            setBasketModalOn(true);
+            setIsMobileMenuOpen(false);
+        };
+        setStates();
     });
 
     function handleFirstname(e) {

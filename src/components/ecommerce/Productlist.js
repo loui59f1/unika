@@ -39,7 +39,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     ]
     // SORTERING
     const [sortSelected, setSortSelected] = useState('popular');
-    const [sortedProducts, setSortedProducts] = useState([]);
 
     // FILTREREDE PRODUKTER
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -57,20 +56,42 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     );
 
     useEffect(() => {
-        setHeroTitle("Produkter");
-        setHeaderLight(true);
-        setBasketModalOn(true);
-    })
+        const setStates = async () => {
+            setHeroTitle("Produkter");
+            setHeaderLight(true);
+            setBasketModalOn(true);
+        };
+        setStates();
+    });
 
     useEffect(() => {
+        const designerState = designerChecked.map((data, index) => {
+            const brandIndex = index;
+            const brandName = designers.filter(({ name }, index) => index === brandIndex);
+            const name = brandName[0].name;
+
+            return { checked: data, name }
+        });
+
         const checkedYes = designerState.filter((item) => item.checked === true);
         const brandNames = checkedYes.map((brand) => {
             return brand.name;
         })
+
         setCheckedBrands(brandNames);
+
     }, [designerChecked]);
 
+    const categoryState = categoryChecked.map((data, index) => {
+        const categoryIndex = index;
+        const categoryName = categories.filter(({ category }, index) => index === categoryIndex);
+        const category = categoryName[0].name;
+
+        return { checked: data, category }
+    });
+
     useEffect(() => {
+
         const checkedYes = categoryState.filter((item) => item.checked === true);
         const categoryNames = checkedYes.map((brand) => {
             return brand.category;
@@ -81,15 +102,12 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
     useEffect(() => {
         if (filteredProducts.length === 0) {
-            setSortedProducts(products.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])));
             setFilteredProducts(products.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])));
         } else {
             setFilteredProducts(products.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])));
             setFilteredProducts(filteredProducts.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])));
         }
-    }, [sortSelected]);
-
-    console.log(sortedProducts)
+    }, [filteredProducts, products, sortSelected]);
 
     useEffect(() => {
 
@@ -108,28 +126,11 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
             setFilteredProducts(products.filter((product) => checkedBrands.includes(product.brand) & product.category === checkedCategories[0]));
         } else if (checkedCategories.length > 1 & checkedBrands.length > 1) {
             setFilteredProducts(products.filter((product) => checkedBrands.includes(product.brand) & checkedCategories.includes(product.category)));
-        } else if (filteredProducts.length < 1) {
         } else {
             setFilteredProducts([]);
         }
 
-    }, [checkedCategories, checkedBrands, sortSelected]);
-
-    const designerState = designerChecked.map((data, index) => {
-        const brandIndex = index;
-        const brandName = designers.filter(({ name }, index) => index === brandIndex);
-        const name = brandName[0].name;
-
-        return { checked: data, name }
-    });
-
-    const categoryState = categoryChecked.map((data, index) => {
-        const categoryIndex = index;
-        const categoryName = categories.filter(({ category }, index) => index === categoryIndex);
-        const category = categoryName[0].name;
-
-        return { checked: data, category }
-    });
+    }, [checkedCategories, checkedBrands, sortSelected, products]);
 
     const handleDesignerChange = (position) => {
         const updatedCheckedState = designerChecked.map((item, index) => {

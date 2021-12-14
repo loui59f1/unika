@@ -5,10 +5,13 @@ import Newsletter from '../landingpage/Newsletter';
 const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
 
     useEffect(() => {
-        setHeroTitle("Designere");
-        setHeaderLight(true);
-        setBasketModalOn(true);
-    })
+        const setStates = async () => {
+            setHeroTitle("Designere");
+            setHeaderLight(true);
+            setBasketModalOn(true);
+        };
+        setStates();
+    });
 
     const brands = [
         {

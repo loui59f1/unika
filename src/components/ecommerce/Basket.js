@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom';
 const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketModalOn }) => {
 
     useEffect(() => {
-        setHeaderLight(false);
-        setBasketModalOn(true);
-    })
+        const setStates = async () => {
+            setHeaderLight(false);
+            setBasketModalOn(true);
+        };
+        setStates();
+    });
 
     return (
         <section id="basket">

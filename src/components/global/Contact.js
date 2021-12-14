@@ -2,10 +2,14 @@ import { useEffect } from "react";
 import HeroSmall from "../ecommerce/HeroSmall";
 
 const Contact = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
+
     useEffect(() => {
-        setHeroTitle("Kontakt os");
-        setHeaderLight(true);
-    })
+        const setStates = async () => {
+            setHeroTitle("Kontakt os");
+            setHeaderLight(true);
+        };
+        setStates();
+    });
 
     return (
         <>

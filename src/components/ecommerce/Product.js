@@ -47,15 +47,18 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
     });
 
     useEffect(() => {
+        const setStates = async () => {
+            setHeroTitle(product.title);
+            setHeaderLight(false);
+            setBasketModalOn(true);
+        };
+        setStates();
+    });
+
+    useEffect(() => {
         const firstImage = product.firstImage;
         setActiveImageSrc(firstImage);
     }, [product])
-
-    useEffect(() => {
-        setHeroTitle(product.title);
-        setHeaderLight(false);
-        setBasketModalOn(true);
-    })
 
     function handleFirstThumbnailClick() {
         setActiveImageSrc(product.firstImage);
@@ -173,7 +176,7 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
                         <div className="button flex">
                             <div className="flex input_amount mr-20">
                                 <button onClick={() => handleClickDown(product)}>-</button>
-                                <input type="text" value={count} />
+                                <input type="text" value={count} onChange={() => setCount(count)} />
                                 <button onClick={() => handleClickUp(product)}>+</button>
                             </div>
                             <ButtonArea btnText={btnText} handleAddToCart={handleAddToCart} product={product} count={count} />
