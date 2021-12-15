@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { Link } from 'react-router-dom';
 
-const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketModalOn }) => {
+const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketModalOn, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -13,7 +13,7 @@ const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketMo
     });
 
     return (
-        <section id="basket">
+        <section id="basket" className={`${animate ? 'transition' : ''}`}>
             {basket.length !== 0 && (<div className="beige_bg"></div>)}
             <div className="container">
                 <div className="basket_grid">

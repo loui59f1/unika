@@ -31,6 +31,7 @@ function App() {
   const [basketModalOn, setBasketModalOn] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [animate, setAnimate] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +42,12 @@ function App() {
       setProducts(json.products);
     };
     fetchData();
+
+    if (window.sessionStorage.getItem("firstLoadDone") === null) {
+      setAnimate(true);
+    } else {
+      setAnimate(false);
+    }
 
   }, []);
 
@@ -108,18 +115,20 @@ function App() {
     <Router>
       <ScrollToTop />
       <Header isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} headerLight={headerLight} basket={basket} basketAmount={basketAmount} subtotal={subtotal} total={total} onRemove={onRemove} products={products} />
-      <Routes>
-        <Route path="/productlist" element={<Productlist isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
-        <Route path="/product/id=:id" element={<Product isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} onAdd={onAdd} onRemove={onRemove} products={products} />} />
-        <Route path="/" element={<Landingpage isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} products={products} onAdd={onAdd} onRemove={onRemove} />} />
-        <Route path="/designers" element={<Designers isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
-        <Route path="/about" element={<About isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
-        <Route path="/contact" element={<Contact isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
-        <Route path="/checkout" element={<Checkout isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} basket={basket} basketAmount={basketAmount} subtotal={subtotal} total={total} />} />
-        <Route path="/basket" element={<Basket isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} basket={basket} basketAmount={basketAmount} onAdd={onAdd} onRemove={onRemove} subtotal={subtotal} total={total} />} />
-        <Route path="/faq" element={<Faq isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
-        <Route path="/order" element={<Order isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} setBasket={setBasket} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} basket={basket} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/productlist" element={<Productlist animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
+          <Route path="/product/id=:id" element={<Product animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} onAdd={onAdd} onRemove={onRemove} products={products} />} />
+          <Route path="/" element={<Landingpage animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} products={products} onAdd={onAdd} onRemove={onRemove} />} />
+          <Route path="/designers" element={<Designers animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
+          <Route path="/about" element={<About animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
+          <Route path="/contact" element={<Contact animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
+          <Route path="/checkout" element={<Checkout animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} basket={basket} basketAmount={basketAmount} subtotal={subtotal} total={total} />} />
+          <Route path="/basket" element={<Basket animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} basket={basket} basketAmount={basketAmount} onAdd={onAdd} onRemove={onRemove} subtotal={subtotal} total={total} />} />
+          <Route path="/faq" element={<Faq animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
+          <Route path="/order" element={<Order animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} setBasket={setBasket} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} basket={basket} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} />} />
+        </Routes>
+      </div>
       <Footer />
     </Router>
 

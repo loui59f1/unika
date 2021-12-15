@@ -4,7 +4,7 @@ import SingleProduct from './SingleProduct';
 import { Link } from 'react-router-dom';
 // import { AnimateOnChange } from 'react-animation';
 
-const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
+const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
     const brandDescription = [
         {
             brand: 'Marinski Heartmades',
@@ -99,7 +99,7 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
     }, [product])
 
     return (
-        <section id="product">
+        <section id="product" className={`${animate ? 'transition' : ''}`}>
             <div className="beige_bg"></div>
             <div className="breadcrumbs">
                 <ul>

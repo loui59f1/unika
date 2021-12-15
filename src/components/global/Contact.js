@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import HeroSmall from "../ecommerce/HeroSmall";
 
-const Contact = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
+const Contact = ({ heroTitle, setHeroTitle, setHeaderLight, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -12,7 +12,7 @@ const Contact = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
     });
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="contact" className="relative">
                 <div className="beige_bg"></div>
@@ -75,7 +75,7 @@ const Contact = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
 

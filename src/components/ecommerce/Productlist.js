@@ -9,7 +9,7 @@ import { designers } from '../../designers';
 
 import { Link } from 'react-router-dom';
 
-const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
+const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
     // SORTERING
     const [sortSelected, setSortSelected] = useState('popular');
 
@@ -177,7 +177,7 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="productlist">
                 <div className="container">
@@ -209,7 +209,7 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

@@ -33,8 +33,6 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     }, []);
 
-    console.log(isMobileMenuOpen)
-
     // const filterProduct = (products, query) => {
     //     if (!query) {
     //         return [];

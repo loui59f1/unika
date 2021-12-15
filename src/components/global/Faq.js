@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import HeroSmall from "../ecommerce/HeroSmall";
 import Newsletter from "../landingpage/Newsletter";
 
-const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
+const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -14,7 +14,7 @@ const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
     });
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="accordion">
                 <div className="container">
@@ -24,7 +24,7 @@ const Faq = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
                 </div>
             </section>
             <Newsletter />
-        </>
+        </div>
     );
 }
 
@@ -68,13 +68,11 @@ function Accordion() {
     ]
 
     return (
-        <>
-            <section className="accordion">
-                {accordionData.map(({ title, content }) => (
-                    <AccordionItem title={title} content={content} />
-                ))}
-            </section>
-        </>
+        <section className="accordion">
+            {accordionData.map(({ title, content }) => (
+                <AccordionItem title={title} content={content} />
+            ))}
+        </section>
     );
 }
 

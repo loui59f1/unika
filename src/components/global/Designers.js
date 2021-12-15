@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import HeroSmall from '../ecommerce/HeroSmall';
 import Newsletter from '../landingpage/Newsletter';
 
-const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
+const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -37,7 +37,7 @@ const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, 
     ]
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="designers">
                 <div className="container">
@@ -157,7 +157,7 @@ const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, 
                 </div>
             </section>
             <Newsletter />
-        </>
+        </div>
     )
 }
 

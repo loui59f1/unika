@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import HeroSmall from "./HeroSmall";
 import Newsletter from "../landingpage/Newsletter";
 
-const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModalOn, setBasket, setIsMobileMenuOpen }) => {
+const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModalOn, setBasket, setIsMobileMenuOpen, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -31,7 +31,7 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
     //    fetchBusinesses()
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="order">
                 <div className="container">
@@ -83,7 +83,7 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
                 </div>
             </section>
             <Newsletter />
-        </>
+        </div>
     )
 }
 

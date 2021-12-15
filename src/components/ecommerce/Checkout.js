@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Checkout = ({ basket, subtotal, total, setHeaderLight, setBasketModalOn }) => {
+const Checkout = ({ basket, subtotal, total, setHeaderLight, setBasketModalOn, animate }) => {
 
     const [userFirstname, setUserFirstname] = useState('');
     const [userLastname, setUserLastname] = useState('');
@@ -101,7 +101,7 @@ const Checkout = ({ basket, subtotal, total, setHeaderLight, setBasketModalOn })
     // };
 
     return (
-        <section id="checkout">
+        <section id="checkout" className={`${animate ? 'transition' : ''}`}>
             {basket.length !== 0 && (<div className="beige_bg"></div>)}
             <div className="container checkout_grid">
                 <div className="checkout_form">

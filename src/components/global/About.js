@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import HeroSmall from "../ecommerce/HeroSmall";
 
-const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
+const About = ({ heroTitle, setHeroTitle, setHeaderLight, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -16,7 +16,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
     console.log(heroTitle);
 
     return (
-        <>
+        <div className={`${animate ? 'transition' : ''}`}>
             <HeroSmall heroTitle={heroTitle} />
             <section id="about" className="relative">
                 <div className="beige_bg"></div>
@@ -58,7 +58,7 @@ const About = ({ heroTitle, setHeroTitle, setHeaderLight }) => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
 
