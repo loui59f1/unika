@@ -5,6 +5,44 @@ import { Link } from 'react-router-dom';
 // import { AnimateOnChange } from 'react-animation';
 
 const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setBasketModalOn }) => {
+    const brandDescription = [
+        {
+            brand: 'Marinski Heartmades',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_marinski.jpg'
+        },
+        {
+            brand: 'Ditte Fischer',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        },
+        {
+            brand: 'Unika K Design',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        },
+        {
+            brand: 'Eva Brandt',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        },
+        {
+            brand: 'Made a Mano',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        },
+        {
+            brand: 'Ann-Louise Roman',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        },
+        {
+            brand: 'Helle Grej',
+            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
+            image: 'brand_image.jpg'
+        }
+    ]
+
     const [product, setProduct] = useState([]);
     const [count, setCount] = useState(1);
     const [btnText, setBtnText] = useState("Læg i kurv");
@@ -44,7 +82,7 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
             setProduct(idProduct);
         };
         fetchData();
-    });
+    }, [urlId]);
 
     useEffect(() => {
         const setStates = async () => {
@@ -59,56 +97,6 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
         const firstImage = product.firstImage;
         setActiveImageSrc(firstImage);
     }, [product])
-
-    function handleFirstThumbnailClick() {
-        setActiveImageSrc(product.firstImage);
-    }
-
-    function handleSecondThumbnailClick() {
-        setActiveImageSrc(product.secondImage);
-    }
-
-    function handleThirdThumbnailClick() {
-        setActiveImageSrc(product.thirdImage);
-    }
-
-    const brandDescription = [
-        {
-            brand: 'Marinski Heartmades',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_marinski.jpg'
-        },
-        {
-            brand: 'Ditte Fischer',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        },
-        {
-            brand: 'Unika K Design',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        },
-        {
-            brand: 'Eva Brandt',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        },
-        {
-            brand: 'Made a Mano',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        },
-        {
-            brand: 'Ann-Louise Roman',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        },
-        {
-            brand: 'Helle Grej',
-            description: 'Hånddrejet porcelæn i keramik og med striber i kongeblå. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare. Kombinationen af hvidt, blødt porcelæn og de blå detaljer giver et forfriskende look til en ellers basal vare.',
-            image: 'brand_image.jpg'
-        }
-    ]
 
     return (
         <section id="product">
@@ -126,17 +114,17 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
                         <img className='product_image' src={`../img/${activeImageSrc}`} alt='' />
                         <div className="images">
                             {product.firstImage &&
-                                <div className="image_thumbnail" onClick={() => handleFirstThumbnailClick()}>
+                                <div className="image_thumbnail" onClick={() => setActiveImageSrc(product.firstImage)}>
                                     <img src={`../img/${product.firstImage}`} alt='' />
                                 </div>
                             }
                             {product.secondImage &&
-                                <div className="image_thumbnail" onClick={() => handleSecondThumbnailClick()}>
+                                <div className="image_thumbnail" onClick={() => setActiveImageSrc(product.secondImage)}>
                                     <img src={`../img/${product.secondImage}`} alt='' />
                                 </div>
                             }
                             {product.thirdImage &&
-                                <div className="image_thumbnail" onClick={() => handleThirdThumbnailClick()}>
+                                <div className="image_thumbnail" onClick={() => setActiveImageSrc(product.thirdImage)}>
                                     <img src={`../img/${product.thirdImage}`} alt='' />
                                 </div>
                             }

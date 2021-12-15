@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Checkout = ({ basket, basketAmount, subtotal, total, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
+const Checkout = ({ basket, subtotal, total, setHeaderLight, setBasketModalOn }) => {
 
     const [userFirstname, setUserFirstname] = useState('');
     const [userLastname, setUserLastname] = useState('');
@@ -16,7 +16,6 @@ const Checkout = ({ basket, basketAmount, subtotal, total, setHeaderLight, setBa
         const setStates = async () => {
             setHeaderLight(false);
             setBasketModalOn(true);
-            setIsMobileMenuOpen(false);
         };
         setStates();
     });

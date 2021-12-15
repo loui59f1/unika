@@ -33,6 +33,8 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     }, []);
 
+    console.log(isMobileMenuOpen)
+
     // const filterProduct = (products, query) => {
     //     if (!query) {
     //         return [];
@@ -151,16 +153,25 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                         <div className="nav_container">
                             <Link to="/">
                                 <div className="logo">
-                                    {headerLight &&
-                                        <img src={`../img/logo_unika.svg`} alt="" />
+                                    {headerLight && !sticky.isSticky &&
+                                        < img src={`../img/logo_unika.svg`} alt="" />
                                     }
-                                    {!headerLight &&
-                                        <img src={`../img/logo_unika_dark.svg`} alt="" />
+                                    {headerLight && sticky.isSticky &&
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                    }
+                                    {/* {headerLight && !sticky &&
+                                        < img src={`../img/logo_unika.svg`} />
+                                    } */}
+                                    {!headerLight && sticky.isSticky &&
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                    }
+                                    {!headerLight && !sticky.isSticky &&
+                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
                                     }
                                 </div>
                             </Link>
                             <div className={`mobile_icon_container ${headerLight === true ? "light_header" : "dark_header"}`}>
-                                <span className="menu_icon" onClick={() => setIsMobileMenuOpen(true)}></span>
+                                <span className={`${sticky.isSticky === true ? "menu_icon_dark" : "menu_icon"}`} onClick={() => setIsMobileMenuOpen(true)}></span>
                             </div>
                             <div>
                                 <div className={`basket_header ${headerLight === true ? "light_header" : "dark_header"}`}>

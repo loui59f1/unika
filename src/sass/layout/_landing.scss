@@ -640,10 +640,11 @@ visibility: hidden;
         margin-top: -50px;
         height: 150%;
         z-index: -1;
-        width: 100%;
+        width: 180%;
 
         @include lg {
-            object-position: top right;
+            width: 110%;
+            object-position: right;
             margin-top: -250px;
             height: auto;
         }

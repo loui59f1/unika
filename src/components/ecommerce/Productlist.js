@@ -58,25 +58,23 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     ////////////////////////////////////////
 
     useEffect(() => {
-        // const setStates = () => {
-        //     setHeroTitle("Produkter");
-        //     setHeaderLight(true);
-        //     setBasketModalOn(true);
-        // };
-        // setStates();
+        const handleStatesOnLoad = () => {
+            setHeroTitle("Produkter");
+            setHeaderLight(true);
+            setBasketModalOn(true);
+        };
         handleStatesOnLoad();
     });
 
-    console.log("Hello")
-
     ////////////////////////////////////////
 
-    const handleStatesOnLoad = () => {
-        setHeroTitle("Produkter");
-        setHeaderLight(true);
-        setBasketModalOn(true);
-    }
+    // const handleStatesOnLoad = () => {
+    //     setHeroTitle("Produkter");
+    //     setHeaderLight(true);
+    //     setBasketModalOn(true);
+    // }
 
+    // Gets called from filter
     const handleDesignerChange = (position) => {
         // Find true or false value on checked, sets array to designerChecked (true, false, false)
         const updatedCheckedState = designerChecked.map((item, index) => {
@@ -87,7 +85,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
             }
         });
         setDesignerChecked(updatedCheckedState);
-
     };
 
     const handleCategoryChange = (position) => {
@@ -107,16 +104,16 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
     ////////////////////////////////////////
 
-    // 
-    const designerState = designerChecked.map((data, index) => {
-        const brandIndex = index;
-        const brandName = designers.filter(({ name }, index) => index === brandIndex);
-        const name = brandName[0].name;
+    // Returns list of checked items status of ex true and name
+    // const designerState = designerChecked.map((data, index) => {
+    //     const brandIndex = index;
+    //     const brandName = designers.filter(({ name }, index) => index === brandIndex);
+    //     const name = brandName[0].name;
 
-        return { checked: data, name }
-    });
+    //     return { checked: data, name }
+    // });
 
-    const checkedYes = designerState.filter((item) => item.checked === true);
+    // const checkedYes = designerState.filter((item) => item.checked === true);
     // const brandNames = checkedYes.map((brand) => {
     //     return brand.name;
     // })
@@ -125,23 +122,36 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     //     setCheckedBrands(brandNames);
     // };
 
-    // console.log(brandNames)
-    console.log(designerChecked)
-    console.log(checkedBrands)
+
+    // useEffect(() => {
+    //     setCheckedBrands(() => (
+    //         checkedYes.map((brand) => {
+    //             return brand.name;
+    //         })
+    //     ));
+
+    // }, [designerChecked]);
+
+
+
+
+    const designerState = designerChecked.map((data, index) => {
+        const brandIndex = index;
+        const brandName = designers.filter(({ name }, index) => index === brandIndex);
+        const name = brandName[0].name;
+
+        return { checked: data, name }
+    });
 
     useEffect(() => {
-        setCheckedBrands(() => (
-            checkedYes.map((brand) => {
-                return brand.name;
-            })
-        ));
+
+        const checkedYes = designerState.filter((item) => item.checked === true);
+        const brandNames = checkedYes.map((brand) => {
+            return brand.name;
+        })
+        setCheckedBrands(brandNames);
 
     }, [designerChecked]);
-
-
-
-
-
 
     const categoryState = categoryChecked.map((data, index) => {
         const categoryIndex = index;
