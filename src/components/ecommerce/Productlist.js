@@ -3,40 +3,13 @@ import SingleProduct from './SingleProduct'
 import Filter from './Filter'
 import Sorting from './Sorting'
 import HeroSmall from "./HeroSmall";
+import { categories } from '../../categories';
+import { designers } from '../../designers';
+
 
 import { Link } from 'react-router-dom';
 
 const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen }) => {
-    const designers = [
-        {
-            name: `Tasja P Ceramics`
-        },
-        {
-            name: `Ditte Fischer`
-        },
-        {
-            name: `Ann-Louise Roman`
-        },
-        {
-            name: `Marinski Heartmades`
-        },
-        {
-            name: `Made a Mano`
-        },
-        {
-            name: `Unika K Design`
-        },
-        {
-            name: `Helle Grej`
-        }
-    ]
-
-    const categories = [
-        { name: 'Kopper' },
-        { name: 'Tallerkener' },
-        { name: 'Julepynt' },
-        { name: 'Keramik' },
-    ]
     // SORTERING
     const [sortSelected, setSortSelected] = useState('popular');
 
@@ -135,15 +108,16 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
 
 
-    const designerState = designerChecked.map((data, index) => {
-        const brandIndex = index;
-        const brandName = designers.filter(({ name }, index) => index === brandIndex);
-        const name = brandName[0].name;
-
-        return { checked: data, name }
-    });
 
     useEffect(() => {
+        const designerState = designerChecked.map((data, index) => {
+            const brandIndex = index;
+            const brandName = designers.filter(({ name }, index) => index === brandIndex);
+            const name = brandName[0].name;
+
+            return { checked: data, name }
+        });
+
 
         const checkedYes = designerState.filter((item) => item.checked === true);
         const brandNames = checkedYes.map((brand) => {
@@ -153,16 +127,14 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
     }, [designerChecked]);
 
-    const categoryState = categoryChecked.map((data, index) => {
-        const categoryIndex = index;
-        const categoryName = categories.filter(({ category }, index) => index === categoryIndex);
-        const category = categoryName[0].name;
-
-        return { checked: data, category }
-    });
-
     useEffect(() => {
+        const categoryState = categoryChecked.map((data, index) => {
+            const categoryIndex = index;
+            const categoryName = categories.filter(({ category }, index) => index === categoryIndex);
+            const category = categoryName[0].name;
 
+            return { checked: data, category }
+        });
         const checkedYes = categoryState.filter((item) => item.checked === true);
         const categoryNames = checkedYes.map((brand) => {
             return brand.category;
