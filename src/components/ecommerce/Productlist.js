@@ -43,11 +43,11 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     // FILTREREDE PRODUKTER
     const [filteredProducts, setFilteredProducts] = useState([]);
 
-    // CHECKED BRANDS - Array of names
+    // CHECKED BRANDS - Array of checked names
     const [checkedBrands, setCheckedBrands] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
 
-    // CHECK STATE - Click on checkbox
+    // CHECK STATE - Array of ex. true, false, false, false
     const [designerChecked, setDesignerChecked] = useState(
         new Array(designers.length).fill(false)
     );
@@ -55,32 +55,93 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
         new Array(categories.length).fill(false)
     );
 
+    ////////////////////////////////////////
+
     useEffect(() => {
-        const setStates = async () => {
-            setHeroTitle("Produkter");
-            setHeaderLight(true);
-            setBasketModalOn(true);
-        };
-        setStates();
+        // const setStates = () => {
+        //     setHeroTitle("Produkter");
+        //     setHeaderLight(true);
+        //     setBasketModalOn(true);
+        // };
+        // setStates();
+        handleStatesOnLoad();
     });
 
-    useEffect(() => {
-        const designerState = designerChecked.map((data, index) => {
-            const brandIndex = index;
-            const brandName = designers.filter(({ name }, index) => index === brandIndex);
-            const name = brandName[0].name;
+    console.log("Hello")
 
-            return { checked: data, name }
+    ////////////////////////////////////////
+
+    const handleStatesOnLoad = () => {
+        setHeroTitle("Produkter");
+        setHeaderLight(true);
+        setBasketModalOn(true);
+    }
+
+    const handleDesignerChange = (position) => {
+        // Find true or false value on checked, sets array to designerChecked (true, false, false)
+        const updatedCheckedState = designerChecked.map((item, index) => {
+            if (index === position) {
+                return !item;
+            } else {
+                return item;
+            }
         });
+        setDesignerChecked(updatedCheckedState);
 
-        const checkedYes = designerState.filter((item) => item.checked === true);
-        const brandNames = checkedYes.map((brand) => {
-            return brand.name;
-        })
+    };
 
-        setCheckedBrands(brandNames);
+    const handleCategoryChange = (position) => {
+        const updatedCheckedState = categoryChecked.map((item, index) => {
+            if (index === position) {
+                return !item;
+            } else {
+                return item;
+            }
+        });
+        setCategoryChecked(updatedCheckedState);
+    };
+
+    const handleSortChange = (e) => {
+        setSortSelected(e.target.value);
+    };
+
+    ////////////////////////////////////////
+
+    // 
+    const designerState = designerChecked.map((data, index) => {
+        const brandIndex = index;
+        const brandName = designers.filter(({ name }, index) => index === brandIndex);
+        const name = brandName[0].name;
+
+        return { checked: data, name }
+    });
+
+    const checkedYes = designerState.filter((item) => item.checked === true);
+    // const brandNames = checkedYes.map((brand) => {
+    //     return brand.name;
+    // })
+
+    // const handleCheckedBrands = () => {
+    //     setCheckedBrands(brandNames);
+    // };
+
+    // console.log(brandNames)
+    console.log(designerChecked)
+    console.log(checkedBrands)
+
+    useEffect(() => {
+        setCheckedBrands(() => (
+            checkedYes.map((brand) => {
+                return brand.name;
+            })
+        ));
 
     }, [designerChecked]);
+
+
+
+
+
 
     const categoryState = categoryChecked.map((data, index) => {
         const categoryIndex = index;
@@ -132,31 +193,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
     }, [checkedCategories, checkedBrands, sortSelected, products]);
 
-    const handleDesignerChange = (position) => {
-        const updatedCheckedState = designerChecked.map((item, index) => {
-            if (index === position) {
-                return !item;
-            } else {
-                return item;
-            }
-        });
-        setDesignerChecked(updatedCheckedState);
-    };
-
-    const handleCategoryChange = (position) => {
-        const updatedCheckedState = categoryChecked.map((item, index) => {
-            if (index === position) {
-                return !item;
-            } else {
-                return item;
-            }
-        });
-        setCategoryChecked(updatedCheckedState);
-    };
-
-    function handleSortChange(e) {
-        setSortSelected(e.target.value);
-    };
 
     return (
         <>

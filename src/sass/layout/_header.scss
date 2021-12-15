@@ -613,10 +613,13 @@ margin-top: 50px;
     }
 }
 
+#accordion {
+    padding: 50px 25px;
+}
+
 .accordion {
     max-width: 800px;
     margin: 0 auto;
-    padding: 50px 0;
 }
 
 .accordion_item {
@@ -654,18 +657,32 @@ margin-top: 50px;
 }
 
 #contact {
+    padding-top: 20px;
+
+    @include lg {
+        padding-top: 50px;
+    }
+
     .beige_bg {
-        width: 62%;
+        width: 100%;
         height: 40%;
         background-color: #F8F7F3;
         position: absolute;
         top: 0;
         left: 0;
         z-index: -2;
+
+        @include lg {
+            width: 62%;
+        }
     }
 
     button {
-        width: 40%;
+        width: 100%;
+
+        @include lg {
+            width: 40%;
+        }
     }
 
     input {
@@ -692,9 +709,14 @@ margin-top: 50px;
     }
 
     .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1.5fr;
-        padding: 0 80px;
+        display: block;
+        padding: 25px;
+
+        @include lg {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr;
+            padding: 0 80px;
+        }
 
         h3 {
             font-size: 13.5px;
@@ -705,7 +727,11 @@ margin-top: 50px;
         }
 
         .sidebar {
-            padding-top: 70px;
+
+            @include lg {
+                padding-top: 70px;
+            }
+
             ul {
                 padding-left: 0;
                 padding-top: 20px;
@@ -725,8 +751,16 @@ margin-top: 50px;
     .form_container {
         max-width: 1185px;
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: block;
+        padding: 25px;
+        margin-top: -80px;
+
+        @include lg {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0;
+            margin-top: 0px;
+        }
     }
     
     // .bg_banner {
@@ -734,11 +768,16 @@ margin-top: 50px;
     // }
 
     .contact_img {
-        width: 430px;
+        width: 100%;
         height: 430px;
         object-fit: cover;
         overflow: hidden;
         margin-top: 30px;
+
+        @include lg {
+            width: 430px;
+            height: 430px;
+        }
 
         img {
             width: 100%;
@@ -748,9 +787,14 @@ margin-top: 50px;
 
 .contact_logo {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 40%;
     overflow: hidden;
+
+    @include lg {
+        top: 50%;
+        left: 50%;
+    }
 
     img {
         animation-name: spin;

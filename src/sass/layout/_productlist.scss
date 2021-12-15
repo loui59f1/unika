@@ -153,7 +153,11 @@
 .item_basket_price {
     position: absolute;
     right: 0;
-    bottom: 15px;
+    bottom: 0px;
+
+    @include lg {
+        bottom: 15px;
+    }
 }
 
 .product_container {
@@ -215,7 +219,7 @@
         margin: 0 auto;
         margin-right: 0px;
         margin-left: 0;
-        margin-top: 120px;
+        margin-top: 90px;
 
         @include lg {
             width: 500px;
@@ -251,6 +255,11 @@
         h1 {
             font-size: 25px;
             font-weight: 400;
+            margin-top: 25px;
+
+            @include lg {
+                margin-top: 0px;
+            }
         }
 
         .price {
@@ -307,7 +316,11 @@
     
     .order {
         padding-right: 25px;
-        padding-bottom: 170px;
+        padding-bottom: 50px;
+
+        @include lg {
+            padding-bottom: 170px;
+        }
 
         select {
             background-color: transparent;
@@ -346,9 +359,10 @@
         }
     }
     
-.title_link {
-    text-decoration: none;
-}
+    .title_link {
+        text-decoration: none;
+    }
+
 
     .basket_item {
         display: flex;
@@ -360,6 +374,7 @@
             color: #000;
             text-transform: none;
             letter-spacing: 0.3px;
+
         }
     }
 
@@ -410,11 +425,27 @@
     }
 }
 
+.amount_container {
+    margin-top: 15px;
+
+    @include lg {
+        margin-top: 8px;
+    }
+}
+
 .remove_icon {
     position: absolute;
-    top: 35px;
+    top: 25px;
     cursor: pointer;
-    right: 0;
+    background-color: transparent;
+    left: 5px;
+    opacity: 0.5;
+
+    @include lg {
+        left:auto;
+        right: 0px !important;
+        top:37px;
+    }
 
     img {
         width: 20px;
@@ -701,16 +732,23 @@ font-weight: 500;
 }
 
 .popular {
-    // display: grid;
-    // grid-template-columns: 1.2fr 1fr;
-    // grid-gap: 1.5em;
-    // margin-top: 0 !important;
+    padding: 25px;
+
+    @include lg {
+        padding: 0;
+    }
 }
 
 .popular_products {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1.5em;
+
+    @include lg {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1.5em;
+    }
 }
 
 #product {
@@ -719,13 +757,18 @@ font-weight: 500;
     padding-bottom: 20px;
     
     .beige_bg {
-        width: 54.5%;
-        height: 790px;
+        width: 100%;
+        height: 390px;
         background-color: #F8F7F3;
         position: absolute;
         top: 9%;
         left: 0;
         z-index: 0;
+
+        @include lg {
+            width: 54.5%;
+            height: 790px;
+        }
     }
 }
 
@@ -789,14 +832,29 @@ background-color: #fff;
 }
 
     .brand_container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 3em;
-        padding: 50px 0;
+        display: block;
+        padding: 50px 25px;
         padding-top: 0px;
+
+        @include lg {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3em;
+            padding: 50px 0px;
+        }
 
         .content {
             width: 100%;
+
+            button {
+                margin-right: 0;
+                margin-bottom: 25px;
+
+                @include lg {
+                    margin-bottom: 0;
+                }
+                
+            }
         }
 
         .subheading {
@@ -818,14 +876,17 @@ background-color: #fff;
     }
 
 .usp {
-    // display: flex;
-    text-align: left;
-    margin-top: 60px;
-    position: relative !important;
-    height: 150px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
+    text-align: left;
+    margin-top: 0px;
+    position: relative !important;
+    height: 250px;
+
+    @include lg {
+        margin-top: 60px;
+        height: 150px;
+    }
 
     .item {
         padding: 20px;
@@ -915,6 +976,11 @@ background-color: #fff;
         top: 200px;
         right: 0%;
         z-index: -1;
+        display: none;
+
+        @include lg {
+            display: block;
+        }
     }
 
     .price {
@@ -935,13 +1001,24 @@ background-color: #fff;
 }
 
 #order {
+    padding: 25px;
+
+    @include lg {
+        padding: 0;
+    }
+
 
     .order_complete {
         text-align: center;
         max-width: 500px;
         margin: 0 auto;
-        padding: 30px 0;
+        padding: 50px 0;
+        padding-top: 30px;
         color: #EA8C7D;
+
+        @include lg {
+            padding-top: 40px;
+        }
 
         h2 {
             font-weight: 500;
@@ -960,15 +1037,25 @@ background-color: #fff;
         max-width: 850px;
         margin: 0 auto;
         background-color: #F8F7F3;
-        padding: 50px;
+        padding: 50px 30px;
+        display: block;
+
+        @include lg {
+            display: flex;
+            padding: 50px;
+        }
 
         ul {
             padding-left: 0;
 
             li {
-                font-size: 18px;
+                font-size: 16px;
                 font-family: 'Jost';
                 line-height: 30px;
+
+                @include lg {
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -976,8 +1063,16 @@ background-color: #fff;
     .order_summary {
         max-width: 850px;
         margin: 0 auto;
-        padding: 50px;
+        padding: 0px;
         padding-top: 80px;
+
+        @include lg {
+            padding: 70px;
+        }
+
+h2 {
+    font-size: 20px;
+}
 
         .summary_item {
             display: flex;
@@ -988,7 +1083,12 @@ background-color: #fff;
                 text-decoration: none !important;
                 color: #000;
                 text-transform: none;
+                bottom: 0;
                 letter-spacing: 0.3px;
+
+                @include lg {
+                    bottom: 15px;
+                }
             }
         }
 

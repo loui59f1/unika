@@ -42,12 +42,11 @@ function App() {
     };
     fetchData();
 
-  }, [setProducts]);
+  }, []);
 
   // https://github.com/basir/react-course-final/blob/master/small-shopping-cart/src/App.js taget herfra
 
   const onAdd = (product, count) => {
-
     const exist = basket.find((x) => x.id === product.id);
     if (exist) {
       setBasket(
@@ -59,6 +58,7 @@ function App() {
       setBasket([...basket, { ...product, amount: count }]);
     }
   };
+
   const onRemove = (product) => {
     const exist = basket.find((x) => x.id === product.id);
     if (exist.amount === 1) {
