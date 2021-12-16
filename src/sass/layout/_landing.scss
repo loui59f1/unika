@@ -35,7 +35,7 @@
         position: relative;
         max-width: 1185px;
         margin: 0 auto;
-        top: 35%;
+        top: 40%;
         z-index: 0;
         
 
@@ -59,14 +59,15 @@
 
 
         h1 {
-            font-size: 45px;
+            font-size: 46px;
             line-height: 50px;
             font-weight: 400;
             padding-right: 50px;
 
             @include lg {
-                font-size: 48px;
+                font-size: 44px;
                 line-height: 60px;
+                padding-bottom: 10px;
                 padding-right: 0px;
             }
         }
@@ -76,11 +77,12 @@
         }
 
         p {
-            font-size: 18px;
+            font-size: 22px;
+            font-family: 'Jost';
             margin-top: 10px;
             margin-bottom: 40px;
-            max-width: 21em;
-            line-height: 29px;
+            max-width: 25em;
+            line-height: 35px;
         }
     }
 }
@@ -224,6 +226,11 @@
     padding-top: 0;
     padding-bottom: 80px;
 
+    @include lg {
+        margin: 100px 0;
+        margin-top: 0px;
+    }
+
     .designer_bg {
         position: absolute;
         background-color: #F8F7F3;
@@ -231,6 +238,11 @@
         top: -20px;
         width: 100%;
         height: 100%;
+
+        @include lg {
+            width: 770px;
+            height: 100%;
+        }
     }
 
     button {
@@ -281,7 +293,6 @@
             position: relative;
             z-index: 5;
         }
-    
     }
 }
 

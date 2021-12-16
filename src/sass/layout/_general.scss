@@ -108,8 +108,20 @@ section {
     padding-bottom: 40px;
 }
 
-.pt-40 {
-    padding-top: 40px;
+.pt-50 {
+    padding-top: 540px;
+}
+
+.pt-60 {
+    padding-top: 60px;
+}
+
+.pt-70 {
+    padding-top: 70px;
+}
+
+.pt-80 {
+    padding-top: 80px;
 }
 
 .pb-50 {
@@ -328,7 +340,7 @@ hr {
     transition: all 0.5s ease;
     animation: smoothScroll 0.5s forwards;
     background-color: #fff;
-    box-shadow: 0px 20px 20px 0px #0000000e;
+    box-shadow: 0px 20px 20px 0px #0000000a;
 
     @include lg {
         top: -55px;

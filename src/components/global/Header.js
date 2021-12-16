@@ -52,17 +52,19 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
     return (
         <header className="transparent" style={{ marginTop: sticky.offset }}>
             <div className={`top_bar ${sticky.isSticky ? 'top_bar_sticky' : ''}`}>
-                <ul className="tb_left">
-                    <li>Flag</li>
-                    <li>DA/DKK</li>
-                    <li>Gratis fragt over 499 DKK</li>
-                    <li>Byt til 1. marts 2022</li>
-                </ul>
-                <ul className="tb_right">
-                    <li><Link to="/faq">FAQ</Link></li>
-                    <li><Link to="/contact">Kontakt os</Link></li>
-                    <li><Link to="/about">Om os</Link></li>
-                </ul>
+                <div className="top_bar_inner">
+                    <ul className="tb_left">
+                        <li>Flag</li>
+                        <li>DA/DKK</li>
+                        <li>Gratis fragt over 499 DKK</li>
+                        <li>Byt til 1. marts 2022</li>
+                    </ul>
+                    <ul className="tb_right">
+                        <li><Link to="/faq">FAQ</Link></li>
+                        <li><Link to="/contact">Kontakt os</Link></li>
+                        <li><Link to="/about">Om os</Link></li>
+                    </ul>
+                </div>
             </div>
             <div className={`header_inner navbar${sticky.isSticky ? ' sticky' : ''}`} ref={headerRef}>
                 {/* <div className="search_dropdown">
@@ -83,16 +85,16 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                         < img src={`../img/logo_unika.svg`} alt="" />
                                     }
                                     {headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                     {/* {headerLight && !sticky &&
                                         < img src={`../img/logo_unika.svg`} />
                                     } */}
                                     {!headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                     {!headerLight && !sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                 </div>
                             </Link>
@@ -155,16 +157,16 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                         < img src={`../img/logo_unika.svg`} alt="" />
                                     }
                                     {headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                     {/* {headerLight && !sticky &&
                                         < img src={`../img/logo_unika.svg`} />
                                     } */}
                                     {!headerLight && sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                     {!headerLight && !sticky.isSticky &&
-                                        < img src={`../img/logo_unika_dark.svg`} alt="" />
+                                        < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
                                 </div>
                             </Link>
@@ -208,7 +210,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                     </div>
                     <div className="mobile_inner">
                         <div className="logo">
-                            <img src={`../img/logo_unika_dark.svg`} alt="" />
+                            <img src={`../img/logo_unika_red.svg`} alt="" />
                         </div>
                         <ul className="categories">
                             <li><Link to="/productlist">Kopper</Link></li>
@@ -257,7 +259,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                             </div>
                                             <div className="item_content">
                                                 <h3>{product.title}</h3>
-                                                <p className="fs-13">{product.amount} stk</p>
+                                                <p>{product.amount} stk</p>
                                             </div>
                                         </div>
                                     ))}
@@ -277,7 +279,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                         </div>
                                     </div>
                                     <div className="basket_modal_btn mt-20">
-                                        <Link to="/basket"><button className="btn btn_secondary btn_inverse">Se kurv</button></Link>
+                                        <Link to="/basket"><button className="btn btn_secondary btn_inverse sm_btn">Se kurv</button></Link>
                                         <Link to="/checkout"><button className="btn btn_primary m-none">Checkout</button></Link>
                                     </div>
                                 </div>

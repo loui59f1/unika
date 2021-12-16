@@ -43,7 +43,7 @@ const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketMo
                                         <img onClick={() => onRemove(item)} src={`../img/remove_icon.jpg`} alt=""></img>
                                     </div>
                                     <div className="amount_container mt-10">
-                                        <p className="fs-13">Antal: {item.amount}</p>
+                                        <p>Antal: {item.amount}</p>
                                     </div>
                                     {/* <div className="counter">
                                         <button onClick={() => onRemove(item)} className="remove">-</button>{' '}

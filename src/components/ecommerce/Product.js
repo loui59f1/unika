@@ -66,11 +66,11 @@ const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setB
         }, 2000);
     }
 
-    const urlId = useParams().id
-
     const [activeImageSrc, setActiveImageSrc] = useState({
         src: ""
     });
+
+    const urlId = useParams().id;
 
     useEffect(() => {
         const fetchData = async () => {

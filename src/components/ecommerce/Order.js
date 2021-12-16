@@ -68,7 +68,7 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
                                             <h2 className="fs-18 product_title">{product.title}</h2>
                                         </div>
                                         <div className="amount_container mt-10">
-                                            <p className="fs-13">Antal: {product.amount}</p>
+                                            <p>Antal: {product.amount}</p>
                                         </div>
                                         {/* <div className="counter">
                                         <button onClick={() => onRemove(item)} className="remove">-</button>{' '}

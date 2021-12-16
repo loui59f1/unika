@@ -6,7 +6,7 @@ export default function Hero() {
             <span className="overlay"></span>
             <div className="hero_content">
                 <div className="hello">
-                    <h1>Håndlavet keramik</h1>
+                    <h1>Hver kop er unik</h1>
                     <p>Nytænkning, høj kvalitet og smukt design har højeste prioritet i vores keramikeres arbejde. Det er vi vilde med.</p>
                     <div className='buttons'>
                         <Link to="/productlist"><button className="btn btn_primary">Se udvalget</button></Link>

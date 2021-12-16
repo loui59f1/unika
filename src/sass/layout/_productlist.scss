@@ -87,7 +87,7 @@
             }
 
             p {
-                font-size: 13px;
+                font-size: 14px;
             }
         }
     }
@@ -131,7 +131,7 @@
     }
 
     .brand {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .price {
@@ -187,7 +187,7 @@
 
             @include lg {
                 flex-direction: column;
-                padding-top: 100px;
+                padding-top: 120px;
             }
         }
 
@@ -246,6 +246,10 @@
     .product_column {
         padding: 0 25px;
         margin-top: -50px;
+
+        button {
+            margin-left: 15px;
+        }
 
         @include lg {
             padding: 40px 0;
@@ -783,7 +787,7 @@ font-weight: 500;
         top: 25px;
 
         p {
-            font-size: 13px;
+            font-size: 14px;
             opacity: 0.8;
         }
     }
@@ -841,6 +845,7 @@ background-color: #fff;
             grid-template-columns: 1fr 1fr;
             grid-gap: 3em;
             padding: 50px 0px;
+            padding-top: 0;
         }
 
         .content {
@@ -1017,7 +1022,8 @@ background-color: #fff;
         color: #EA8C7D;
 
         @include lg {
-            padding-top: 40px;
+            padding-top: 70px;
+            padding-bottom: 70px;
         }
 
         h2 {

@@ -33,8 +33,8 @@ const Footer = () => {
                         <li><Link to="/productlist">Udsalg</Link></li>
                     </ul>
                 </div>
-                <div>
-                    <img src={`../img/footer_logo.svg`} alt="" />
+                <div className="pt-80">
+                    <img src={`../img/logo_unika_red.svg`} alt="" />
                     <div className="footer_logos">
                         <a href="https://www.facebook.com/danskkeramik/"><img src={`../img/facebook_icon.svg`} alt="" /></a>
                         <a href="https://www.pinterest.dk/danskkeramik/"><img src={`../img/pinterest_icon.svg`} alt="" /></a>
