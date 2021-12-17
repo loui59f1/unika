@@ -32,7 +32,7 @@
         position: relative;
         max-width: 1185px;
         margin: 0 auto;
-        top: 45%;
+        top: 35%;
         z-index: 0;
         
         @include lg {
@@ -615,6 +615,7 @@ visibility: hidden;
     position: relative;
     z-index: -1;
     height: 300px;
+    background-image: url('../../images/hero_small.jpg');
 
     @include lg {
         position: relative;
