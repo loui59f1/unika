@@ -137,7 +137,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                 </div>
                             </Link>
                             <div className={`mobile_icon_container ${headerLight === true ? "light_header" : "dark_header"}`}>
-                                <span className={`${sticky.isSticky === true ? "menu_icon_dark" : "menu_icon"}`} onClick={() => setIsMobileMenuOpen(true)}></span>
+                                <span className={`${sticky.isSticky === true ? "menu_icon_dark" : "menu_icon"}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}></span>
                             </div>
                             <div>
                                 <div className={`basket_header ${headerLight === true ? "light_header" : "dark_header"}`}>
