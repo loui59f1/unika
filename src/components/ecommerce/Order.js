@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import HeroSmall from "./HeroSmall";
 import Newsletter from "../landingpage/Newsletter";
 
-const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModalOn, setBasket, setIsMobileMenuOpen, animate }) => {
+const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModalOn, setIsMobileMenuOpen, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {
@@ -13,22 +13,6 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
         };
         setStates();
     });
-
-    //     const fetchBusinesses = () => {
-    //         return fetch("theURL", {method: "GET"}
-    //      )
-    //        .then(res => normalizeResponseErrors(res))
-    //        .then(res => {
-    //          return res.json();
-    //        })
-    //        .then(rcvdBusinesses => {
-    //          // some stuff
-    //        })
-    //        .catch(err => {
-    //          // some error handling
-    //        });
-    //    };
-    //    fetchBusinesses()
 
     return (
         <div className={`${animate ? 'transition' : ''}`}>
@@ -70,11 +54,6 @@ const Order = ({ setHeaderLight, heroTitle, setHeroTitle, basket, setBasketModal
                                         <div className="amount_container mt-10">
                                             <p>Antal: {product.amount}</p>
                                         </div>
-                                        {/* <div className="counter">
-                                        <button onClick={() => onRemove(item)} className="remove">-</button>{' '}
-                                        <p>{item.amount}</p>
-                                        <button onClick={() => onAdd(item)} className="add">+</button>
-                                    </div> */}
                                     </div>
                                 </div>
                             ))}

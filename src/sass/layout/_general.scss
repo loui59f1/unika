@@ -316,6 +316,10 @@ hr {
     margin-right: 20px;
 }
 
+.-mt-25 {
+    margin-top: -25px;
+}
+
 .w-full {
     width: 100%;
 }
@@ -324,8 +328,9 @@ hr {
     background-color: transparent;
 }
 
-.-mt-25 {
-    margin-top: -25px;
+.jost {
+    font-family: 'Jost';
+    font-size: 15px;
 }
 
 .top_bar_sticky {

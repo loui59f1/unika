@@ -83,23 +83,6 @@ const Checkout = ({ basket, subtotal, total, setHeaderLight, setBasketModalOn, a
             .then(data => console.log(data));
     }
 
-    // KIG PÅ DENNE: https://reactgo.com/post-request-react-hooks/
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-
-    //     const data = { title, body };
-    //     const requestOptions = {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify(data)
-    //     };
-    //     fetch("https://unikaproducts-2d03.restdb.io/rest/orders",
-    //         requestOptions
-    //     )
-    //         .then(response => response.json())
-    //         .then(res => console.log(res));
-    // };
-
     return (
         <section id="checkout" className={`${animate ? 'transition' : ''}`}>
             {basket.length !== 0 && (<div className="beige_bg"></div>)}

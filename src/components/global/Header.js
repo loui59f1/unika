@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 
-const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, basketModalOn, isModalOpen, setIsModalOpen, products, isMobileMenuOpen, setIsMobileMenuOpen }) => {
+const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, basketModalOn, isModalOpen, setIsModalOpen, isMobileMenuOpen, setIsMobileMenuOpen }) => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');
@@ -33,49 +33,21 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     }, []);
 
-    // const filterProduct = (products, query) => {
-    //     if (!query) {
-    //         return [];
-    //     }
-
-    //     return products.filter((product) => {
-    //         const queryLowered = query.toLowerCase();
-    //         const productName = product.title.toLowerCase();
-    //         const productBrand = product.brand.toLowerCase();
-    //         const productCategory = product.category.toLowerCase();
-
-    //         return productName.includes(queryLowered) | productCategory.includes(queryLowered) | productBrand.includes(queryLowered);
-    //     });
-    // };
-    // const searchFilteredProducts = filterProduct(products, searchQuery);
-
     return (
         <header className="transparent" style={{ marginTop: sticky.offset }}>
             <div className={`top_bar ${sticky.isSticky ? 'top_bar_sticky' : ''}`}>
-                <div className="top_bar_inner">
-                    <ul className="tb_left">
-                        <li>Flag</li>
-                        <li>DA/DKK</li>
-                        <li>Gratis fragt over 499 DKK</li>
-                        <li>Byt til 1. marts 2022</li>
-                    </ul>
-                    <ul className="tb_right">
-                        <li><Link to="/faq">FAQ</Link></li>
-                        <li><Link to="/contact">Kontakt os</Link></li>
-                        <li><Link to="/about">Om os</Link></li>
-                    </ul>
-                </div>
+                <ul className="tb_left">
+                    <li>DA/DKK</li>
+                    <li>Gratis fragt over 499 DKK</li>
+                    <li>Byt til 1. marts 2022</li>
+                </ul>
+                <ul className="tb_right">
+                    <li><Link to="/faq">FAQ</Link></li>
+                    <li><Link to="/contact">Kontakt os</Link></li>
+                    <li><Link to="/about">Om os</Link></li>
+                </ul>
             </div>
             <div className={`header_inner navbar${sticky.isSticky ? ' sticky' : ''}`} ref={headerRef}>
-                {/* <div className="search_dropdown">
-                    <div className="select_container">
-                        <Select
-                            options={aquaticCreatures}
-                            isMulti
-                            onChange={opt => console.log(opt)}
-                        />
-                    </div>
-                </div> */}
                 <nav>
                     <div className="desktop_menu">
                         <div className="top_nav">
@@ -87,9 +59,6 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                     {headerLight && sticky.isSticky &&
                                         < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
-                                    {/* {headerLight && !sticky &&
-                                        < img src={`../img/logo_unika.svg`} />
-                                    } */}
                                     {!headerLight && sticky.isSticky &&
                                         < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
@@ -159,9 +128,6 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                     {headerLight && sticky.isSticky &&
                                         < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
-                                    {/* {headerLight && !sticky &&
-                                        < img src={`../img/logo_unika.svg`} />
-                                    } */}
                                     {!headerLight && sticky.isSticky &&
                                         < img src={`../img/logo_unika_red.svg`} alt="" />
                                     }
@@ -189,20 +155,6 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                     </div>
                 </nav >
             </div >
-            {/* {searchQuery &&
-                <div className="search_results_container">
-                    <ul className="search_dropdown">
-                        {searchFilteredProducts.map((product, index) => (
-                            <li key={index}>
-                                <Link to={`/product/id=${product.id}`} >
-                                    <h2>{product.title}</h2>
-                                    <h3>{product.brand}</h3>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            } */}
             {isMobileMenuOpen &&
                 <div className="mobile_menu_list">
                     <div className="close_container" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>

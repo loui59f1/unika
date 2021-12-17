@@ -45,11 +45,6 @@ const Basket = ({ basket, subtotal, total, setHeaderLight, onRemove, setBasketMo
                                     <div className="amount_container mt-10">
                                         <p>Antal: {item.amount}</p>
                                     </div>
-                                    {/* <div className="counter">
-                                        <button onClick={() => onRemove(item)} className="remove">-</button>{' '}
-                                        <p>{item.amount}</p>
-                                        <button onClick={() => onAdd(item)} className="add">+</button>
-                                    </div> */}
                                 </div>
                             </div>
                         ))}

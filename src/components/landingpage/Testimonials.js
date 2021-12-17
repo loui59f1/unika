@@ -1,6 +1,3 @@
-// import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-// import { Splide, SplideSlide } from '@splidejs/react-splide';
-
 export default function Testimonials() {
     return (
         <section id="testimonials">
@@ -21,47 +18,3 @@ export default function Testimonials() {
         </section>
     );
 }
-
-// function TestimonialSlider() {
-
-//     return (
-//         // <Splide options={{
-//         //     rewind: true,
-//         //     perPage: 3,
-//         //     gap: '3rem',
-//         // }}>
-//         //     <SplideSlide>
-//         //         <div className="testimonial_slide">
-//         //             <h2 className="mb-20">"Tak for den smukkeste kop, med et meget fint stykke håndværk.
-//         //                 Den levede helt klart op til mine forventninger, og jeg glæder mig
-//         //                 til at give gaven væk i julegave."</h2>
-//         //             <h3 className="mt-40 mb-20">Birgitte Jørgensen</h3>
-//         //         </div>
-//         //     </SplideSlide>
-//         //     <SplideSlide>
-//         //         <div className="testimonial_slide">
-//         //             <h2 className="mb-20">"Tak for den smukkeste kop, med et meget fint stykke håndværk.
-//         //                 Den levede helt klart op til mine forventninger, og jeg glæder mig
-//         //                 til at give gaven væk i julegave."</h2>
-//         //             <h3 className="mt-40 mb-20">Birgitte Jørgensen</h3>
-//         //         </div>
-//         //     </SplideSlide>
-//         //     <SplideSlide>
-//         //         <div className="testimonial_slide">
-//         //             <h2 className="mb-20">"Tak for den smukkeste kop, med et meget fint stykke håndværk.
-//         //                 Den levede helt klart op til mine forventninger, og jeg glæder mig
-//         //                 til at give gaven væk i julegave."</h2>
-//         //             <h3 className="mt-40 mb-20">Birgitte Jørgensen</h3>
-//         //         </div>
-//         //     </SplideSlide>
-//         //     <SplideSlide>
-//         //         <div className="testimonial_slide">
-//         //             <h2 className="mb-20">"Tak for den smukkeste kop, med et meget fint stykke håndværk.
-//         //                 Den levede helt klart op til mine forventninger, og jeg glæder mig
-//         //                 til at give gaven væk i julegave."</h2>
-//         //             <h3 className="mt-40 mb-20">Birgitte Jørgensen</h3>
-//         //         </div>
-//         //     </SplideSlide>
-//         // </Splide>
-//     // );
-// // }

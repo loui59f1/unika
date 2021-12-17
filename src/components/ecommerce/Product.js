@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
 import { Link } from 'react-router-dom';
-// import { AnimateOnChange } from 'react-animation';
 
 const Product = ({ onAdd, onRemove, products, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
     const brandDescription = [

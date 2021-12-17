@@ -1,5 +1,4 @@
 const Search = ({ searchQuery, setSearchQuery, headerLight }) => {
-    // https://www.emgoto.com/react-search-bar/
     return (
         <>
             <div className={`search_container ${headerLight === true ? "light_header" : "dark_header"}`}>

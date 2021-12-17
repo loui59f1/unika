@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import HeroSmall from '../ecommerce/HeroSmall';
 import Newsletter from '../landingpage/Newsletter';
 
-const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, setIsMobileMenuOpen, animate }) => {
+const Designers = ({ heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
 
     useEffect(() => {
         const setStates = async () => {

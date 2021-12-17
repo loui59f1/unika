@@ -1,4 +1,18 @@
 #checkout {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .checkout_grid {
+        display: block;
+        padding: 25px;
+    
+        @include lg {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr;
+            grid-gap: 5em;
+            padding: 0;
+        }
+    }
 
     .beige_bg {
         width: 100%;
@@ -23,56 +37,44 @@
     h2 {
         font-size: 16px;
     }
-}
 
-.checkout_grid {
-    display: block;
-    padding: 25px;
-
-    @include lg {
-        display: grid;
-        grid-template-columns: 2fr 1.5fr;
-        grid-gap: 5em;
-        padding: 0;
-    }
-}
-
-.checkout_form {
-    padding-top: 35px;
-
-    h2 {
-        font-size: 25px !important;
-    }
-
-    form {
-        margin-top: 20px;
-        padding-bottom: 30px;
-
-        @include lg {
-            padding-bottom: 50px;
+    .checkout_form {
+        padding-top: 35px;
+    
+        h2 {
+            font-size: 25px !important;
+        }
+    
+        form {
+            margin-top: 20px;
+            padding-bottom: 30px;
+    
+            @include lg {
+                padding-bottom: 50px;
+            }
+        }
+    
+        input {
+            width: 100%;
+            padding: 15px 11px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #d0d0d0;
+        }
+    
+        input:focus {
+            outline: none;
+            border: 1px solid #a0a0a0;
         }
     }
 
-    input {
-        width: 100%;
-        padding: 15px 11px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        border: 1px solid #d0d0d0;
-    }
-
-    input:focus {
-        outline: none;
-        border: 1px solid #a0a0a0;
-    }
-}
-
-.checkout_sidebar {
-    padding-left: 0px;
-
-    @include lg {
-        padding-left: 25px;
-        padding-top: 25px;
+    .checkout_sidebar {
+        padding-left: 0px;
+    
+        @include lg {
+            padding-left: 25px;
+            padding-top: 25px;
+        }
     }
 }
 
@@ -117,11 +119,6 @@ label {
     position: relative;
 }
 
-#checkout {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
 .checkout_product_img {
     position: absolute;
     top: 0;
@@ -151,11 +148,6 @@ label {
     position: absolute;
     right: 0;
     top: 15px;
-}
-
-.jost {
-    font-family: 'Jost';
-    font-size: 15px;
 }
 
 .optional h3 {

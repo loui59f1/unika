@@ -13,11 +13,6 @@ export default function ProductList({ products, onAdd, onRemove }) {
                             <SingleProduct product={product} onAdd={onAdd} onRemove={onRemove} />
                         </Link>
                     ))}
-                    {/* {products && products.map((product, index) => (
-                            <Link to={`/product/id=${product.id}`} className="single_product" key={index} >
-                                <SingleProduct product={product} onAdd={onAdd} onRemove={onRemove} />
-                            </Link>
-                        ))} */}
                 </div>
             </div>
         </section>

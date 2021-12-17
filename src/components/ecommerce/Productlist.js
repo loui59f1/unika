@@ -10,25 +10,18 @@ import { designers } from '../../designers';
 import { Link } from 'react-router-dom';
 
 const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
-    // SORTERING
     const [sortSelected, setSortSelected] = useState('popular');
-
-    // FILTREREDE PRODUKTER
     const [filteredProducts, setFilteredProducts] = useState([]);
 
-    // CHECKED BRANDS - Array of checked names
     const [checkedBrands, setCheckedBrands] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
 
-    // CHECK STATE - Array of ex. true, false, false, false
     const [designerChecked, setDesignerChecked] = useState(
         new Array(designers.length).fill(false)
     );
     const [categoryChecked, setCategoryChecked] = useState(
         new Array(categories.length).fill(false)
     );
-
-    ////////////////////////////////////////
 
     useEffect(() => {
         const handleStatesOnLoad = () => {
@@ -39,15 +32,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
         handleStatesOnLoad();
     });
 
-    ////////////////////////////////////////
-
-    // const handleStatesOnLoad = () => {
-    //     setHeroTitle("Produkter");
-    //     setHeaderLight(true);
-    //     setBasketModalOn(true);
-    // }
-
-    // Gets called from filter
     const handleDesignerChange = (position) => {
         // Find true or false value on checked, sets array to designerChecked (true, false, false)
         const updatedCheckedState = designerChecked.map((item, index) => {
@@ -74,40 +58,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     const handleSortChange = (e) => {
         setSortSelected(e.target.value);
     };
-
-    ////////////////////////////////////////
-
-    // Returns list of checked items status of ex true and name
-    // const designerState = designerChecked.map((data, index) => {
-    //     const brandIndex = index;
-    //     const brandName = designers.filter(({ name }, index) => index === brandIndex);
-    //     const name = brandName[0].name;
-
-    //     return { checked: data, name }
-    // });
-
-    // const checkedYes = designerState.filter((item) => item.checked === true);
-    // const brandNames = checkedYes.map((brand) => {
-    //     return brand.name;
-    // })
-
-    // const handleCheckedBrands = () => {
-    //     setCheckedBrands(brandNames);
-    // };
-
-
-    // useEffect(() => {
-    //     setCheckedBrands(() => (
-    //         checkedYes.map((brand) => {
-    //             return brand.name;
-    //         })
-    //     ));
-
-    // }, [designerChecked]);
-
-
-
-
 
     useEffect(() => {
         const designerState = designerChecked.map((data, index) => {
@@ -154,8 +104,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
 
     useEffect(() => {
 
-        // setFilteredProducts(products.sort((a, b) => a[sortSelected].localeCompare(b[sortSelected])))
-
         if (checkedCategories.length > 0 & checkedBrands.length === 0) {
             setFilteredProducts(products.filter((product) => checkedCategories.includes(product.category)));
         } else if (checkedCategories.length === 0 & checkedBrands.length > 0) {
@@ -185,16 +133,6 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
                     <div className="sidebar_grid">
                         <Filter handleDesignerChange={handleDesignerChange} handleCategoryChange={handleCategoryChange} designers={designers} categories={categories} products={products} designerChecked={designerChecked} categoryChecked={categoryChecked} />
                         <div className="product_list bg-pink-200">
-                            {/* {products.filter(product => selectedCategory === "All" || product.brand === selectedCategory).map((product, index) => (
-                            <Link to={`/product/id=${product.id}`} className="single_product" key={index} >
-                                <SingleProduct product={product} onAdd={onAdd} onRemove={onRemove} />
-                            </Link>
-                        ))} */}
-                            {/* {filteredProducts.length > 1 && filteredProducts.map((product, index) => (
-                            <Link to={`/product/id=${product.id}`} className="single_product" key={index} >
-                                <SingleProduct product={product} onAdd={onAdd} onRemove={onRemove} />
-                            </Link>
-                        ))} */}
                             {filteredProducts.length < 1 && products.map((product, index) => (
                                 <Link to={`/product/id=${product.id}`} className="single_product" key={index} >
                                     <SingleProduct product={product} onAdd={onAdd} onRemove={onRemove} />

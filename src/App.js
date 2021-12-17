@@ -3,7 +3,6 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-
 import Productlist from "./components/ecommerce/Productlist";
 import Product from "./components/ecommerce/Product";
 import Basket from "./components/ecommerce/Basket";
@@ -16,7 +15,6 @@ import Footer from "./components/global/Footer";
 import Designers from "./components/global/Designers";
 import Faq from "./components/global/Faq";
 import Order from "./components/ecommerce/Order";
-
 
 import "./sass/main.scss";
 import "./css/style.css";
@@ -51,8 +49,6 @@ function App() {
 
   }, []);
 
-  // https://github.com/basir/react-course-final/blob/master/small-shopping-cart/src/App.js taget herfra
-
   const onAdd = (product, count) => {
     const exist = basket.find((x) => x.id === product.id);
     if (exist) {
@@ -79,7 +75,6 @@ function App() {
     }
   };
 
-  // BASKETAMOUNT 
   useEffect(() => {
     if (basket.length > 0) {
       const totalArr = basket.map((item) => {
@@ -94,7 +89,6 @@ function App() {
     }
   }, [basket])
 
-  // BASKET SUBTOTAL AND TOTAL
   useEffect(() => {
     if (basket.length > 0) {
       const subtotalArr = basket.map((item) => {

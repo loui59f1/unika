@@ -44,7 +44,6 @@ const Contact = ({ heroTitle, setHeroTitle, setHeaderLight, animate }) => {
                     </div>
                 </div>
                 <div className="form_container pb-40">
-                    {/* <div className="bg_banner"></div> */}
                     <form>
                         <h2 className="mb-40">Send os en besked</h2>
                         <div className="flex row mb-20">
