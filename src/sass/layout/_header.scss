@@ -7,25 +7,25 @@ header {
     margin-bottom: -150px;
     z-index: 999;
     overflow:visible;
+}
 
-    .header_inner {
+.header_inner {
+    max-width: 1185px;
+    margin: 0 auto;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    padding-top: 0px;
+    width: 100%;
+    max-width: 100%;
+
+    @include lg {
+        padding-top: 50px;
+    }
+
+    nav {
         max-width: 1185px;
         margin: 0 auto;
-        background-color: transparent;
-        position: relative;
-        overflow: hidden;
-        padding-top: 0px;
-        width: 100%;
-        max-width: 100%;
-    
-        @include lg {
-            padding-top: 50px;
-        }
-    
-        nav {
-            max-width: 1185px;
-            margin: 0 auto;
-        }
     }
 }
 
