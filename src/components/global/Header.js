@@ -1,24 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import Search from "./Search";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate,
-    NavLink,
-    Link,
-    useNavigate,
-    createSearchParams,
-} from 'react-router-dom';
+import { Link, useNavigate, createSearchParams } from "react-router-dom";
+import { categories } from "../../categories";
 
 const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, basketModalOn, isModalOpen, setIsModalOpen, isMobileMenuOpen, setIsMobileMenuOpen, products }) => {
-
-    const posts = [
-        { id: '1', name: 'This first post is about React' },
-        { id: '2', name: 'This next post is about Preact' },
-        { id: '3', name: 'We have yet another React post!' },
-        { id: '4', name: 'This is the fourth and final post' },
-    ];
 
     // Her henter vi værdien af input som brugeren har søgt, den opdateres ved hver ændring.
 
@@ -27,6 +12,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     const [searchQuery, setSearchQuery] = useState(query || '');
 
+    // Den filtrerede liste af produkter der matcher søgning
     const filterPosts = (posts, query) => {
         if (!query) {
             return null;
@@ -35,11 +21,26 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
         return posts.filter((post) => {
             const postName = post.title.toLowerCase();
             const postBrand = post.brand.toLowerCase();
-            return postName.includes(query) | postBrand.includes(query);
+            const postCategory = post.category.toLowerCase();
+            return postName.includes(query) | postBrand.includes(query) | postCategory.includes(query);
         });
     };
 
+    // Den filtrerede liste af kategorier der matcher søgning 
+    const filterCategory = (category, query) => {
+        if (!query) {
+            return null;
+        }
+
+        return category.filter((category) => {
+            const categoryName = category.name.toLowerCase();
+            return categoryName.includes(query);
+        });
+    }
+
     const filteredPosts = filterPosts(products, searchQuery);
+    const filteredCategories = filterCategory(categories, searchQuery);
+
 
     const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
 
@@ -103,8 +104,16 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                             </Link>
                             <Search headerLight={headerLight} searchQuery={searchQuery} setSearchQuery={setSearchQuery} products={products} />
                             <ul>
-                                {filteredPosts && filteredPosts.map(post => (
-                                    <li key={post.key}>{post.title}</li>
+                                {filteredPosts && filteredPosts.map((product, index) => (
+                                    <Link to={`/product/id=${product.id}`} className="single_product" key={index} >
+                                        <li>{product.title}</li>
+                                    </Link>
+                                ))
+                                }
+                                {filteredCategories && filteredCategories.map((category, index) => (
+                                    <Link to={`/categorylist/?search=${category.name}`} key={index} >
+                                        <li key={index}>{category.name}</li>
+                                    </Link>
                                 ))
                                 }
                             </ul>
@@ -144,12 +153,9 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                         <div className="bottom_nav">
                             <div className={`${headerLight === true ? "light_header" : "dark_header"}`}>
                                 <ul className="categories">
-                                    <Link to="/categorylist/category=kopper"><li>Kopper</li></Link>
-                                    <Link to="/categorylist/category=vaser"><li>Vaser</li></Link>
-                                    <Link to="/categorylist/category=service"><li>Service</li></Link>
-                                    <Link to="/categorylist/category=julepynt"><li>Julepynt</li></Link>
-                                    <Link to="/categorylist/category=kander"><li>Kander</li></Link>
-                                    <Link to="/categorylist/category=sale"><li>Sale</li></Link>
+                                    {categories.map((category) => (
+                                        <Link to="/productlist"><li>{category.name}</li></Link>
+                                    ))}
                                 </ul>
                                 <ul className="links">
                                     <Link to="/productlist"><li>Alle produkter</li></Link>

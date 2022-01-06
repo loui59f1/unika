@@ -5,7 +5,5 @@ export const categories = [
     { name: 'Julepynt' },
     { name: 'Keramik' },
     { name: 'Vaser' },
-    { name: 'Service' },
-    { name: 'Kander' },
     { name: 'Sale' },
 ]

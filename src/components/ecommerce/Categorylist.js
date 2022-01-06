@@ -11,10 +11,7 @@ import { Link, useParams } from 'react-router-dom';
 const Categorylist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
     const [sortSelected, setSortSelected] = useState('popular');
     const [filteredProducts, setFilteredProducts] = useState([]);
-
-    // Henter det search input efter ? i url:
-    const queryParams = new URLSearchParams(window.location.search);
-    const search = queryParams.get('search');
+    // const [searchValue, setSearchValue] = useState()
 
     // Rydder op i søgning og tager højde for store, små bogstaver og mellemrum.
     const toTitleCase = (string) => {
@@ -25,23 +22,39 @@ const Categorylist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setH
             .join(' ');
     };
 
-    let searchValue = toTitleCase(search);
 
+    // Henter det search input efter ? i url:
+    let queryParams = new URLSearchParams(window.location.search);
+    let search = queryParams.get('search');
+
+    if (search === '' | search === null) {
+        search = 'Produkter';
+    }
+
+    let searchValue = toTitleCase(search);
     // ex: Kopper, Tallerkener, Helle Grej
 
-    console.log(searchValue)
+    console.log(search);
 
-    // Hvilken søgning er der tale om?
-    if (categories.some(i => i.name === searchValue)) {
-        console.log("Searchvalue is a category");
-        setHeroTitle(searchValue);
-    } else if (designers.some(i => i.name === searchValue)) {
-        console.log("Searchvalue is a brand");
-        setHeroTitle(searchValue);
-    } else {
-        console.log("Searchvalue is something else");
-        setHeroTitle("Produkter");
-    }
+
+    useEffect(() => {
+        const handleSearchOnLoad = () => {
+            // Hvilken søgning er der tale om?
+            if (categories.some(i => i.name === searchValue)) {
+                console.log("Searchvalue is a category");
+                setHeroTitle(searchValue);
+            } else if (designers.some(i => i.name === searchValue)) {
+                console.log("Searchvalue is a brand");
+                setHeroTitle(searchValue);
+            } else {
+                console.log("Searchvalue is something else");
+                setHeroTitle("Produkter");
+            }
+
+        };
+
+        handleSearchOnLoad();
+    });
 
     //
 

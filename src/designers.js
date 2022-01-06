@@ -13,15 +13,12 @@ export const designers = [
         name: `Marinski Heartmades`
     },
     {
-        name: `Made a Mano`
+        name: `Made A Mano`
     },
     {
         name: `Unika K Design`
     },
     {
         name: `Helle Grej`
-    },
-    {
-        name: 'Test'
     }
 ]
