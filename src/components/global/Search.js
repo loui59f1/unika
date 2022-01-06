@@ -1,8 +1,11 @@
 const Search = ({ searchQuery, setSearchQuery, headerLight }) => {
+
+    // Her sender vi en search request til /categorylist/?=category
+
     return (
         <>
             <div className={`search_container ${headerLight === true ? "light_header" : "dark_header"}`}>
-                <form action="/productlist" method="get">
+                <form action="/categorylist/" method="get">
                     <input
                         value={searchQuery}
                         onInput={(e) => setSearchQuery(e.target.value)}
@@ -10,7 +13,7 @@ const Search = ({ searchQuery, setSearchQuery, headerLight }) => {
                         className="input_search"
                         placeholder="Søg efter produkt eller designer"
                         id="header-search"
-                        name="s"
+                        name="search"
                     />
                     <button type="submit" className="search_btn"><span className="search_icon"></span></button>
                 </form>

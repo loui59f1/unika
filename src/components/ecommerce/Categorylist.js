@@ -6,17 +6,49 @@ import HeroSmall from "./HeroSmall";
 import { categories } from '../../categories';
 import { designers } from '../../designers';
 
+import { Link, useParams } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
-
-const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
+const Categorylist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHeaderLight, setBasketModalOn, animate }) => {
     const [sortSelected, setSortSelected] = useState('popular');
     const [filteredProducts, setFilteredProducts] = useState([]);
+
+    // Henter det search input efter ? i url:
+    const queryParams = new URLSearchParams(window.location.search);
+    const search = queryParams.get('search');
+
+    // Rydder op i søgning og tager højde for store, små bogstaver og mellemrum.
+    const toTitleCase = (string) => {
+        return string
+            .toLowerCase()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    };
+
+    let searchValue = toTitleCase(search);
+
+    // ex: Kopper, Tallerkener, Helle Grej
+
+    console.log(searchValue)
+
+    // Hvilken søgning er der tale om?
+    if (categories.some(i => i.name === searchValue)) {
+        console.log("Searchvalue is a category");
+        setHeroTitle(searchValue);
+    } else if (designers.some(i => i.name === searchValue)) {
+        console.log("Searchvalue is a brand");
+        setHeroTitle(searchValue);
+    } else {
+        console.log("Searchvalue is something else");
+        setHeroTitle("Produkter");
+    }
+
+    //
 
     const [checkedBrands, setCheckedBrands] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
 
-    console.log(checkedBrands)
+    //
 
     const [designerChecked, setDesignerChecked] = useState(
         new Array(designers.length).fill(false)
@@ -25,14 +57,38 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
         new Array(categories.length).fill(false)
     );
 
+
+    // find index på søgte kategori
+    const categoryIndex = categories.findIndex(checkCategory);
+    const designerIndex = designers.findIndex(checkCategory);
+
+    function checkCategory(category) {
+        return category.name === searchValue;
+    }
+
+
     useEffect(() => {
         const handleStatesOnLoad = () => {
-            setHeroTitle("Produkter");
             setHeaderLight(true);
             setBasketModalOn(true);
+
+            // opdaterer checkbox, men skal nulstilles når der gås til ny side.
+            categoryChecked[categoryIndex] = true;
+            designerChecked[designerIndex] = true;
+
+            // setCheckedCategories(selectedCategory);
         };
+
+        // if (categoryIndex === -1) {
+        //     return null;
+        // } else {
+        //     setCategoryChecked[0] = ;
+        // }
+
         handleStatesOnLoad();
     });
+
+
 
     const handleDesignerChange = (position) => {
         // Find true or false value on checked, sets array to designerChecked (true, false, false)
@@ -153,4 +209,4 @@ const Productlist = ({ products, onAdd, onRemove, heroTitle, setHeroTitle, setHe
     )
 }
 
-export default Productlist;
+export default Categorylist;

@@ -20,5 +20,8 @@ export const designers = [
     },
     {
         name: `Helle Grej`
+    },
+    {
+        name: 'Test'
     }
 ]

@@ -1,11 +1,44 @@
 import { useEffect, useState, useRef } from "react";
 import Search from "./Search";
-import { Link } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+    NavLink,
+    Link,
+    useNavigate,
+    createSearchParams,
+} from 'react-router-dom';
 
-const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, basketModalOn, isModalOpen, setIsModalOpen, isMobileMenuOpen, setIsMobileMenuOpen }) => {
+const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, basketModalOn, isModalOpen, setIsModalOpen, isMobileMenuOpen, setIsMobileMenuOpen, products }) => {
+
+    const posts = [
+        { id: '1', name: 'This first post is about React' },
+        { id: '2', name: 'This next post is about Preact' },
+        { id: '3', name: 'We have yet another React post!' },
+        { id: '4', name: 'This is the fourth and final post' },
+    ];
+
+    // Her henter vi værdien af input som brugeren har søgt, den opdateres ved hver ændring.
+
     const { search } = window.location;
-    const query = new URLSearchParams(search).get('s');
+    const query = new URLSearchParams(search).get('/search');
+
     const [searchQuery, setSearchQuery] = useState(query || '');
+
+    const filterPosts = (posts, query) => {
+        if (!query) {
+            return posts;
+        }
+
+        return posts.filter((post) => {
+            const postName = post.title.toLowerCase();
+            return postName.includes(query);
+        });
+    };
+
+    const filteredPosts = filterPosts(products, searchQuery);
 
     const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
 
@@ -67,7 +100,13 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                                     }
                                 </div>
                             </Link>
-                            <Search headerLight={headerLight} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                            <Search headerLight={headerLight} searchQuery={searchQuery} setSearchQuery={setSearchQuery} products={products} />
+                            <ul>
+                                {filteredPosts.map(post => (
+                                    <li key={post.key}>{post.title}</li>
+                                ))
+                                }
+                            </ul>
                             <div className={`profile_header ${headerLight === true ? "light_header" : "dark_header"}`}>
                                 <span className="profile_icon"></span>
                             </div>
@@ -104,12 +143,12 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                         <div className="bottom_nav">
                             <div className={`${headerLight === true ? "light_header" : "dark_header"}`}>
                                 <ul className="categories">
-                                    <Link to="/productlist"><li>Kopper</li></Link>
-                                    <Link to="/productlist"><li>Vaser</li></Link>
-                                    <Link to="/productlist"><li>Service</li></Link>
-                                    <Link to="/productlist"><li>Julepynt</li></Link>
-                                    <Link to="/productlist"><li>Kander</li></Link>
-                                    <Link to="/productlist"><li>Sale</li></Link>
+                                    <Link to="/categorylist/category=kopper"><li>Kopper</li></Link>
+                                    <Link to="/categorylist/category=vaser"><li>Vaser</li></Link>
+                                    <Link to="/categorylist/category=service"><li>Service</li></Link>
+                                    <Link to="/categorylist/category=julepynt"><li>Julepynt</li></Link>
+                                    <Link to="/categorylist/category=kander"><li>Kander</li></Link>
+                                    <Link to="/categorylist/category=sale"><li>Sale</li></Link>
                                 </ul>
                                 <ul className="links">
                                     <Link to="/productlist"><li>Alle produkter</li></Link>

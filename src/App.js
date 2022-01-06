@@ -4,6 +4,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Productlist from "./components/ecommerce/Productlist";
+import Categorylist from "./components/ecommerce/Categorylist";
 import Product from "./components/ecommerce/Product";
 import Basket from "./components/ecommerce/Basket";
 import Checkout from "./components/ecommerce/Checkout";
@@ -112,6 +113,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/productlist" element={<Productlist animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
+          <Route path="/categorylist" element={<Categorylist animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/product/id=:id" element={<Product animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} onAdd={onAdd} onRemove={onRemove} products={products} />} />
           <Route path="/" element={<Landingpage animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} products={products} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/designers" element={<Designers animate={animate} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} basketModalOn={basketModalOn} setBasketModalOn={setBasketModalOn} setHeaderLight={setHeaderLight} heroTitle={heroTitle} setHeroTitle={setHeroTitle} products={products} onAdd={onAdd} onRemove={onRemove} />} />
