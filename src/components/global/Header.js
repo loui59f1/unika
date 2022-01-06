@@ -29,12 +29,13 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
 
     const filterPosts = (posts, query) => {
         if (!query) {
-            return posts;
+            return null;
         }
 
         return posts.filter((post) => {
             const postName = post.title.toLowerCase();
-            return postName.includes(query);
+            const postBrand = post.brand.toLowerCase();
+            return postName.includes(query) | postBrand.includes(query);
         });
     };
 
@@ -102,7 +103,7 @@ const Header = ({ basket, basketAmount, subtotal, total, onRemove, headerLight, 
                             </Link>
                             <Search headerLight={headerLight} searchQuery={searchQuery} setSearchQuery={setSearchQuery} products={products} />
                             <ul>
-                                {filteredPosts.map(post => (
+                                {filteredPosts && filteredPosts.map(post => (
                                     <li key={post.key}>{post.title}</li>
                                 ))
                                 }
